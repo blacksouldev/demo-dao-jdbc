@@ -1,21 +1,27 @@
 package model.entities;
 
-import java.time.LocalDate;
+import java.io.Serializable;
+import java.util.Date;
+import java.util.Objects;
 
-public class Seller {
+public class Seller implements Serializable{
+	private static final long serialVersionUID = 1L;
 	
 	private Integer id;
 	private String name;
 	private String email;
-	private LocalDate date;
-	private Double BaseSalary;
+	private Date date;
+	private Double baseSalary;
 	
-	public Seller(Integer id, String name, String email, LocalDate date, Double baseSalary) {
+	private Department department;
+	
+	public Seller(Integer id, String name, String email, Date date, Double baseSalary, Department department) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.date = date;
-		BaseSalary = baseSalary;
+		this.baseSalary = baseSalary;
+		this.department = department;
 	}
 
 	public Integer getId() {
@@ -42,22 +48,52 @@ public class Seller {
 		this.email = email;
 	}
 
-	public LocalDate getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDate date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 
 	public Double getBaseSalary() {
-		return BaseSalary;
+		return baseSalary;
 	}
 
 	public void setBaseSalary(Double baseSalary) {
-		BaseSalary = baseSalary;
+		this.baseSalary = baseSalary;
 	}
-	
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Seller other = (Seller) obj;
+		return Objects.equals(id, other.id);
+	}
+
+	@Override
+	public String toString() {
+		return "Seller [id=" + id + ", name=" + name + ", email=" + email + ", date=" + date + ", baseSalary="
+				+ baseSalary + ", department=" + department + "]";
+	}
 	
 	
 	
