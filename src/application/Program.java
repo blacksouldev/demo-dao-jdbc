@@ -43,7 +43,15 @@ public class Program {
 		Seller newSeller = new Seller(null, "Marx", "marx@gmail.com", new Date(), 15000.00, department);
 		sellerDao.inserir(newSeller);
 		System.out.println("Inserido! Novo Id = " + newSeller.getId());
+
+		System.out.println();
 		
+		System.out.println("==== TEST 5: seller update ====");
+		seller = sellerDao.buscarPorId(1);
+		seller.setName("Martha Waine");
+		seller.setEmail("martha@gmail.com");
+		sellerDao.atualizar(seller);
+		System.out.println("Atualização completada");
 		
 		
 		sc.close();
