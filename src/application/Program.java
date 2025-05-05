@@ -39,12 +39,12 @@ public class Program {
 		
 		System.out.println();
 		
-		System.out.println("==== TEST 4: seller insert ====");
+		/*System.out.println("==== TEST 4: seller insert ====");
 		Seller newSeller = new Seller(null, "Marx", "marx@gmail.com", new Date(), 15000.00, department);
 		sellerDao.inserir(newSeller);
 		System.out.println("Inserido! Novo Id = " + newSeller.getId());
 
-		System.out.println();
+		System.out.println();*/
 		
 		System.out.println("==== TEST 5: seller update ====");
 		seller = sellerDao.buscarPorId(1);
@@ -52,8 +52,14 @@ public class Program {
 		seller.setEmail("martha@gmail.com");
 		sellerDao.atualizar(seller);
 		System.out.println("Atualização completada");
+
+		System.out.println();
 		
-		
+		System.out.println("==== TEST 6: seller delete ====");
+		System.out.print("Digite um id para testar o delete: ");
+		int id = sc.nextInt();
+		sellerDao.deletarPorId(id);
+		System.out.println("Delete comletado");
 		sc.close();
 	}
 
